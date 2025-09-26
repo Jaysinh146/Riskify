@@ -114,24 +114,20 @@ export function DatasetViewer({ onMessageSelect }: DatasetViewerProps) {
   return (
     <Card>
       <CardHeader>
-        <div className="flex items-center justify-between">
-          <div>
-            <CardTitle className="flex items-center gap-2">
-              <Database className="h-5 w-5 text-primary" />
-              Synthetic Threat Dataset
-            </CardTitle>
-            <CardDescription className="hidden sm:block">
-              Browse and analyze the synthetic cybersecurity message dataset ({statistics.total} messages)
-            </CardDescription>
-            <CardDescription className="sm:hidden">
-              Dataset ({statistics.total} messages)
-            </CardDescription>
-          </div>
-          <Button onClick={handleExportCSV} variant="outline" className="gap-2">
-            <Download className="h-4 w-4" />
-            Export CSV
-          </Button>
-        </div>
+        <CardTitle className="flex items-center gap-2">
+          <Database className="h-5 w-5 text-primary" />
+          Synthetic Threat Dataset
+        </CardTitle>
+        <CardDescription className="hidden sm:block">
+          Browse and analyze the synthetic cybersecurity message dataset ({statistics.total} messages)
+        </CardDescription>
+        <CardDescription className="sm:hidden">
+          Dataset ({statistics.total} messages)
+        </CardDescription>
+        <Button onClick={handleExportCSV} variant="outline" className="gap-2 w-fit mt-3">
+          <Download className="h-4 w-4" />
+          Export CSV
+        </Button>
       </CardHeader>
       <CardContent className="space-y-6">
         {/* Dataset Statistics */}
