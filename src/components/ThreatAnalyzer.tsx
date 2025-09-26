@@ -91,6 +91,12 @@ export function ThreatAnalyzer({ onPrediction }: ThreatAnalyzerProps) {
               placeholder="Enter message to analyze... (e.g., 'Selling new phishing kit for bank sites')"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                  e.preventDefault();
+                  handleAnalyze();
+                }
+              }}
               className="min-h-[100px] bg-background/50"
             />
             <div className="flex items-center justify-between">

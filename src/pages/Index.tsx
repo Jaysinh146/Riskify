@@ -71,7 +71,7 @@ const Index = () => {
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
         <Tabs defaultValue="analyzer" className="space-y-4">
-          <TabsList className="grid w-full grid-cols-4 lg:w-fit">
+          <TabsList className="flex flex-col gap-1 w-full h-auto sm:flex-row sm:grid sm:grid-cols-4 lg:w-fit lg:h-10">
             <TabsTrigger value="analyzer">
               Threat Analyzer
             </TabsTrigger>
