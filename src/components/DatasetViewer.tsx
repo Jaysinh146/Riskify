@@ -5,7 +5,8 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Download, Database, Search, Filter } from 'lucide-react';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Download, Database, Search, Filter, Eye } from 'lucide-react';
 import { defaultDataset, exportToCSV, type ThreatMessage } from '@/data/syntheticData';
 import { useToast } from '@/hooks/use-toast';
 
@@ -111,7 +112,7 @@ export function DatasetViewer({ onMessageSelect }: DatasetViewerProps) {
   }, []);
 
   return (
-    <Card className="border-border/50 bg-gradient-to-br from-card to-card/80">
+    <Card>
       <CardHeader>
         <div className="flex items-center justify-between">
           <div>
@@ -131,24 +132,24 @@ export function DatasetViewer({ onMessageSelect }: DatasetViewerProps) {
       </CardHeader>
       <CardContent className="space-y-6">
         {/* Dataset Statistics */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="p-3 rounded-lg bg-muted/50 text-center">
-            <div className="text-2xl font-bold text-primary">{statistics.total}</div>
-            <div className="text-sm text-muted-foreground">Total Messages</div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="p-3 rounded border bg-muted/20 text-center">
+            <div className="text-xl font-semibold">{statistics.total}</div>
+            <div className="text-xs text-muted-foreground">Total</div>
           </div>
-          <div className="p-3 rounded-lg bg-threat-high/10 text-center">
-            <div className="text-2xl font-bold text-threat-high">{statistics.threats}</div>
-            <div className="text-sm text-muted-foreground">Threats</div>
+          <div className="p-3 rounded border bg-red-50 text-center">
+            <div className="text-xl font-semibold text-red-600">{statistics.threats}</div>
+            <div className="text-xs text-muted-foreground">Threats</div>
           </div>
-          <div className="p-3 rounded-lg bg-safe/10 text-center">
-            <div className="text-2xl font-bold text-safe">{statistics.benign}</div>
-            <div className="text-sm text-muted-foreground">Benign</div>
+          <div className="p-3 rounded border bg-green-50 text-center">
+            <div className="text-xl font-semibold text-green-600">{statistics.benign}</div>
+            <div className="text-xs text-muted-foreground">Benign</div>
           </div>
-          <div className="p-3 rounded-lg bg-muted/50 text-center">
-            <div className="text-2xl font-bold text-primary">
+          <div className="p-3 rounded border bg-muted/20 text-center">
+            <div className="text-xl font-semibold">
               {Object.keys(statistics.typeStats).length}
             </div>
-            <div className="text-sm text-muted-foreground">Threat Types</div>
+            <div className="text-xs text-muted-foreground">Types</div>
           </div>
         </div>
 
@@ -199,7 +200,7 @@ export function DatasetViewer({ onMessageSelect }: DatasetViewerProps) {
                 <TableHead>Message</TableHead>
                 <TableHead className="w-[100px]">Label</TableHead>
                 <TableHead className="w-[120px]">Type</TableHead>
-                <TableHead className="w-[100px]">Action</TableHead>
+                <TableHead className="w-[100px]">View</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -214,13 +215,37 @@ export function DatasetViewer({ onMessageSelect }: DatasetViewerProps) {
                   <TableCell>{getLabelBadge(message.label)}</TableCell>
                   <TableCell>{getTypeBadge(message.type)}</TableCell>
                   <TableCell>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      onClick={() => onMessageSelect?.(message)}
-                    >
-                      Analyze
-                    </Button>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button size="sm" variant="outline">
+                          <Eye className="h-3 w-3" />
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-2xl">
+                        <DialogHeader>
+                          <DialogTitle>Message Details</DialogTitle>
+                          <DialogDescription>ID: {message.id}</DialogDescription>
+                        </DialogHeader>
+                        <div className="space-y-3">
+                          <div>
+                            <label className="text-sm font-medium">Full Message:</label>
+                            <p className="text-sm bg-muted p-3 rounded mt-1">{message.text}</p>
+                          </div>
+                          <div className="flex gap-4">
+                            <div>
+                              <label className="text-sm font-medium">Label:</label>
+                              <div className="mt-1">{getLabelBadge(message.label)}</div>
+                            </div>
+                            {message.type && (
+                              <div>
+                                <label className="text-sm font-medium">Type:</label>
+                                <div className="mt-1">{getTypeBadge(message.type)}</div>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                   </TableCell>
                 </TableRow>
               ))}

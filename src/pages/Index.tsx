@@ -13,7 +13,7 @@ import { ThreatAnalyzer } from '@/components/ThreatAnalyzer';
 import { DatasetViewer } from '@/components/DatasetViewer';
 import { BatchProcessor } from '@/components/BatchProcessor';
 import { PredictionHistory } from '@/components/PredictionHistory';
-import { SystemOverview } from '@/components/SystemOverview';
+
 import { type ThreatPrediction } from '@/ml/threatDetector';
 import { type ThreatMessage } from '@/data/syntheticData';
 
@@ -47,17 +47,17 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b bg-card/50 backdrop-blur-sm">
+      <header className="border-b bg-card">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <h1 className="text-2xl font-bold text-foreground">
                 LDP — Lightweight Threat Detection
               </h1>
-              <p className="text-muted-foreground mt-1">
-                Browser-based AI threat detection for cybersecurity education
+              <p className="text-sm text-muted-foreground">
+                Final Year B.Tech Project ( Group SE 33 ) - Student Prototype
               </p>
             </div>
             <div className="flex items-center gap-2">
@@ -70,33 +70,21 @@ const Index = () => {
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
-        <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-5 lg:w-fit lg:grid-cols-5 gap-1">
-            <TabsTrigger value="overview" className="flex items-center gap-2">
-              <span className="hidden sm:inline">System Overview</span>
-              <span className="sm:hidden">Overview</span>
+        <Tabs defaultValue="analyzer" className="space-y-4">
+          <TabsList className="grid w-full grid-cols-4 lg:w-fit">
+            <TabsTrigger value="analyzer">
+              Threat Analyzer
             </TabsTrigger>
-            <TabsTrigger value="analyzer" className="flex items-center gap-2">
-              <span className="hidden sm:inline">Threat Analyzer</span>
-              <span className="sm:hidden">Analyze</span>
+            <TabsTrigger value="dataset">
+              Dataset
             </TabsTrigger>
-            <TabsTrigger value="dataset" className="flex items-center gap-2">
-              <span className="hidden sm:inline">Dataset</span>
-              <span className="sm:hidden">Data</span>
+            <TabsTrigger value="batch">
+              Batch Process
             </TabsTrigger>
-            <TabsTrigger value="batch" className="flex items-center gap-2">
-              <span className="hidden sm:inline">Batch Process</span>
-              <span className="sm:hidden">Batch</span>
-            </TabsTrigger>
-            <TabsTrigger value="history" className="flex items-center gap-2">
-              <span className="hidden sm:inline">History</span>
-              <span className="sm:hidden">History</span>
+            <TabsTrigger value="history">
+              History
             </TabsTrigger>
           </TabsList>
-
-          <TabsContent value="overview" className="space-y-6">
-            <SystemOverview />
-          </TabsContent>
 
           <TabsContent value="analyzer" className="space-y-6">
             <ThreatAnalyzer
@@ -122,21 +110,12 @@ const Index = () => {
       </main>
 
       {/* Footer */}
-      <footer className="border-t bg-card/30 backdrop-blur-sm">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="text-center md:text-left">
-              <p className="text-sm text-muted-foreground">
-                LDP — Lightweight Threat Detection Platform
-              </p>
-              <p className="text-xs text-muted-foreground">
-                Educational cybersecurity demonstration • Synthetic data only
-              </p>
-            </div>
-            <div className="text-xs text-muted-foreground text-center md:text-right">
-              <p>Built with React, TypeScript & HuggingFace Transformers</p>
-              <p>⚠️ For educational purposes only</p>
-            </div>
+      <footer className="border-t bg-muted/30 mt-12">
+        <div className="container mx-auto px-4 py-4">
+          <div className="text-center">
+            <p className="text-xs text-muted-foreground">
+              Final Year B.Tech Project • Educational demonstration • Synthetic data only
+            </p>
           </div>
         </div>
       </footer>
