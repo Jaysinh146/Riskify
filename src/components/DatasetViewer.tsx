@@ -120,8 +120,11 @@ export function DatasetViewer({ onMessageSelect }: DatasetViewerProps) {
               <Database className="h-5 w-5 text-primary" />
               Synthetic Threat Dataset
             </CardTitle>
-            <CardDescription>
+            <CardDescription className="hidden sm:block">
               Browse and analyze the synthetic cybersecurity message dataset ({statistics.total} messages)
+            </CardDescription>
+            <CardDescription className="sm:hidden">
+              Dataset ({statistics.total} messages)
             </CardDescription>
           </div>
           <Button onClick={handleExportCSV} variant="outline" className="gap-2">

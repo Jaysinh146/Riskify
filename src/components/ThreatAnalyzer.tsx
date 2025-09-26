@@ -80,8 +80,11 @@ export function ThreatAnalyzer({ onPrediction }: ThreatAnalyzerProps) {
             <Shield className="h-5 w-5 text-primary" />
             Threat Analysis Engine
           </CardTitle>
-          <CardDescription>
+          <CardDescription className="hidden sm:block">
             Enter a message to analyze for potential cybersecurity threats using AI detection.
+          </CardDescription>
+          <CardDescription className="sm:hidden">
+            Enter message for AI threat analysis
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">

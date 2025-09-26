@@ -258,8 +258,11 @@ export function BatchProcessor() {
             <FileText className="h-5 w-5 text-primary" />
             Batch Threat Analysis
           </CardTitle>
-          <CardDescription>
+          <CardDescription className="hidden sm:block">
             Upload a CSV file to analyze multiple messages at once. CSV should contain a 'text' or 'message' column.
+          </CardDescription>
+          <CardDescription className="sm:hidden">
+            Upload CSV for batch analysis
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">

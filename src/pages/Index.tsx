@@ -56,8 +56,11 @@ const Index = () => {
               <h1 className="text-2xl font-bold text-foreground">
                 LDP — Lightweight Threat Detection
               </h1>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-muted-foreground hidden sm:block">
                 Final Year B.Tech Project ( Group SE 33 ) - Student Prototype
+              </p>
+              <p className="text-xs text-muted-foreground sm:hidden">
+                B.Tech Project - Group SE 33
               </p>
             </div>
             <div className="flex items-center gap-2">

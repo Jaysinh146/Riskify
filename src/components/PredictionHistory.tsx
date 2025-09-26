@@ -49,9 +49,12 @@ export function PredictionHistory({ predictions, onClearHistory }: PredictionHis
             <Clock className="h-5 w-5 text-primary" />
             Recent Predictions
           </CardTitle>
-          <CardDescription>
-            Your recent threat analysis results will appear here
-          </CardDescription>
+            <CardDescription className="hidden sm:block">
+              Your recent threat analysis results will appear here
+            </CardDescription>
+            <CardDescription className="sm:hidden">
+              Recent analysis results
+            </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="text-center py-8 text-muted-foreground">
@@ -73,8 +76,11 @@ export function PredictionHistory({ predictions, onClearHistory }: PredictionHis
               <Clock className="h-5 w-5 text-primary" />
               Recent Predictions
             </CardTitle>
-            <CardDescription>
+            <CardDescription className="hidden sm:block">
               Last {recentPredictions.length} threat analysis results
+            </CardDescription>
+            <CardDescription className="sm:hidden">
+              Last {recentPredictions.length} results
             </CardDescription>
           </div>
           {predictions.length > 0 && (
