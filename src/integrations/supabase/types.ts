@@ -14,7 +14,149 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      analysis_history: {
+        Row: {
+          confidence: number
+          created_at: string | null
+          entities: Json | null
+          explanation: string | null
+          features: Json | null
+          id: string
+          input_text: string
+          prediction_label: string
+          risk_level: string
+          risk_score: number
+          user_id: string
+        }
+        Insert: {
+          confidence: number
+          created_at?: string | null
+          entities?: Json | null
+          explanation?: string | null
+          features?: Json | null
+          id?: string
+          input_text: string
+          prediction_label: string
+          risk_level: string
+          risk_score: number
+          user_id: string
+        }
+        Update: {
+          confidence?: number
+          created_at?: string | null
+          entities?: Json | null
+          explanation?: string | null
+          features?: Json | null
+          id?: string
+          input_text?: string
+          prediction_label?: string
+          risk_level?: string
+          risk_score?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      companies: {
+        Row: {
+          created_at: string | null
+          email: string
+          id: string
+          name: string
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          id?: string
+          name: string
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          id?: string
+          name?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          company_id: string | null
+          contact_info: string | null
+          created_at: string | null
+          email: string
+          full_name: string
+          id: string
+          is_admin: boolean | null
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          company_id?: string | null
+          contact_info?: string | null
+          created_at?: string | null
+          email: string
+          full_name: string
+          id?: string
+          is_admin?: boolean | null
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          company_id?: string | null
+          contact_info?: string | null
+          created_at?: string | null
+          email?: string
+          full_name?: string
+          id?: string
+          is_admin?: boolean | null
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "profiles_company_id_fkey"
+            columns: ["company_id"]
+            isOneToOne: false
+            referencedRelation: "companies"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      uploaded_files: {
+        Row: {
+          analysis_count: number | null
+          created_at: string | null
+          file_name: string
+          file_path: string
+          file_size: number
+          id: string
+          mime_type: string
+          user_id: string
+        }
+        Insert: {
+          analysis_count?: number | null
+          created_at?: string | null
+          file_name: string
+          file_path: string
+          file_size: number
+          id?: string
+          mime_type: string
+          user_id: string
+        }
+        Update: {
+          analysis_count?: number | null
+          created_at?: string | null
+          file_name?: string
+          file_path?: string
+          file_size?: number
+          id?: string
+          mime_type?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
