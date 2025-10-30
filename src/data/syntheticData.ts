@@ -29,7 +29,17 @@ const threatPatterns = {
     "Latest version of file locker is ready for distribution",
     "Ransomware kit with automatic payment portal included",
     "Testing encryption speeds on different file types",
-    "Who wants to beta test my new file encryption tool?"
+    "Who wants to beta test my new file encryption tool?",
+    "Double extortion ransomware with data leak threats",
+    "Automated ransomware deployment targeting healthcare",
+    "New locker variant targets backup systems first",
+    "Ransomware with wiper functionality as backup",
+    "Supply chain attack vector for ransomware distribution",
+    "Fileless ransomware living off the land techniques",
+    "Multi-stage encryption to defeat recovery tools",
+    "Ransomware with automatic lateral movement capabilities",
+    "Custom ransom note generator with localization",
+    "Payment tracking system for crypto ransoms integrated"
   ],
   phishing: [
     "Selling a new phishing kit that spoofs bank login pages",
@@ -41,7 +51,22 @@ const threatPatterns = {
     "New SMS phishing campaign targeting mobile banking",
     "Spear phishing toolkit for corporate email accounts",
     "High-conversion phishing pages for popular crypto exchanges",
-    "Advanced phishing kit with 2FA bypass capabilities"
+    "Advanced phishing kit with 2FA bypass capabilities",
+    "Business email compromise templates for wire transfers",
+    "Fake invoice phishing campaigns targeting enterprises",
+    "Clone phishing framework duplicates legitimate sites",
+    "QR code phishing attack redirects to credential theft",
+    "Voice phishing scripts with caller ID spoofing",
+    "Phishing attack using typosquatting domains",
+    "Email phishing with embedded malicious macros",
+    "Credential phishing via fake password reset pages",
+    "Whaling attack templates for C-level executives",
+    "Phishing kit with built-in keylogger functionality",
+    "Social media phishing campaigns for account takeover",
+    "Fake software update phishing delivering malware",
+    "Tax-themed phishing targeting finance departments",
+    "COVID-19 relief phishing scams still effective",
+    "Fake delivery notification phishing with tracking links"
   ],
   ddos: [
     "Plan DDoS on examplebank.com this Friday at 3 AM UTC",
@@ -53,7 +78,22 @@ const threatPatterns = {
     "New reflection attack method works great against CDNs",
     "Who has experience with volumetric attacks on infrastructure?",
     "Coordinating multi-vector DDoS attack next week",
-    "Selling DDoS-for-hire service, competitive pricing"
+    "Selling DDoS-for-hire service, competitive pricing",
+    "DNS amplification attack with 100x multiplication factor",
+    "NTP reflection DDoS targeting financial services",
+    "Application layer DDoS bypassing rate limiting",
+    "UDP flood attack overwhelming network infrastructure",
+    "SYN flood attack exhausting server resources",
+    "HTTP flood using legitimate-looking requests",
+    "Slowloris attack keeping connections open indefinitely",
+    "Memcached reflection attack reaching 1Tbps",
+    "SSDP amplification targeting consumer routers",
+    "Carpet bombing DDoS affecting entire network ranges",
+    "Pulse wave DDoS switching attack vectors",
+    "DDoS with ransom demand threatening escalation",
+    "Botnet rental for sustained multi-day attacks",
+    "IoT botnet with 200k infected devices ready",
+    "DDoS attack disrupting VoIP communications"
   ],
   credential_theft: [
     "Who wants to buy credentials for mail.example.org? cheap",
@@ -65,7 +105,22 @@ const threatPatterns = {
     "Fresh batch of stolen social media account credentials",
     "Banking credentials from recent phishing campaign for sale",
     "Corporate email credentials with 2FA tokens included",
-    "Selling access to compromised government employee accounts"
+    "Selling access to compromised government employee accounts",
+    "Session hijacking tool bypasses authentication",
+    "Credential stuffing attack using breach compilations",
+    "Brute force tool with proxy rotation capabilities",
+    "Password spraying targeting enterprise accounts",
+    "Kerberoasting toolkit for Active Directory",
+    "Pass-the-hash attack framework for Windows",
+    "Cookie theft malware extracting browser sessions",
+    "Man-in-the-middle attack intercepting credentials",
+    "Credential harvesting from memory dumps",
+    "API key extraction from mobile applications",
+    "Token theft from cloud service accounts",
+    "SSH key theft from developer workstations",
+    "Database credential extraction from web apps",
+    "Privileged account credentials from domain controllers",
+    "Service account credentials for lateral movement"
   ],
   other: [
     "New exploit for popular CMS system, zero-day confirmed",
@@ -77,7 +132,27 @@ const threatPatterns = {
     "New method for bypassing hardware security modules",
     "Selling access to compromised payment processing systems",
     "Anyone interested in ATM skimming hardware?",
-    "New technique for SIM swapping works 90% of the time"
+    "New technique for SIM swapping works 90% of the time",
+    "SQL injection vulnerability in major e-commerce platform",
+    "Remote code execution exploit for network appliances",
+    "Privilege escalation exploit for Linux kernels",
+    "Cross-site scripting framework for session hijacking",
+    "Buffer overflow exploit targeting industrial systems",
+    "Authentication bypass for enterprise VPN solutions",
+    "Malware-as-a-service platform with crypto miners",
+    "Trojan distribution network via software cracks",
+    "Backdoor installation service for persistent access",
+    "Data exfiltration tool using DNS tunneling",
+    "Command and control infrastructure for sale",
+    "Cryptojacking malware optimized for browsers",
+    "Rootkit installation bypassing kernel protections",
+    "Supply chain compromise targeting software updates",
+    "Advanced persistent threat toolkit for espionage",
+    "Zero-click exploit for mobile messaging apps",
+    "Firmware backdoor for network equipment",
+    "Steganography tool for covert communications",
+    "Memory-resident malware evading detection",
+    "Living-off-the-land techniques for red teams"
   ]
 };
 
@@ -111,7 +186,49 @@ const benignPatterns = [
   "Compliance audit results will be shared in next meeting",
   "New security cameras installed in the server room",
   "Password manager deployment completed across organization",
-  "Network segmentation project milestone achieved"
+  "Network segmentation project milestone achieved",
+  "Patch Tuesday updates scheduled for tonight",
+  "Security newsletter featuring latest threat intelligence",
+  "Congratulations on passing the security certification exam",
+  "New security documentation added to the wiki",
+  "Vulnerability assessment report shows positive trends",
+  "Disaster recovery test successful, great job team",
+  "Security committee meeting minutes are now available",
+  "Thanks for your contributions to the security roadmap",
+  "New data classification guidelines published",
+  "Access control review completed for all departments",
+  "Cloud security posture management dashboard launched",
+  "Security metrics dashboard updated with Q4 data",
+  "Congratulations to the security team for zero incidents",
+  "New encryption standards adopted for data at rest",
+  "Identity and access management system upgrade complete",
+  "Security awareness quiz due by end of week",
+  "Thanks for attending the SIEM training session",
+  "New security tools evaluation project kickoff",
+  "Compliance documentation updated for new regulations",
+  "Security operations center staffing increase approved",
+  "Threat intelligence sharing agreement signed",
+  "Security architecture review scheduled for next month",
+  "Congratulations on completing the penetration test",
+  "New secure development lifecycle adopted",
+  "Privacy impact assessment template available",
+  "Data loss prevention policies updated",
+  "Security incident classification guide published",
+  "Thanks for the quick response to the security alert",
+  "Cybersecurity insurance renewal completed",
+  "New security dashboard provides real-time visibility",
+  "Security best practices guide for remote work",
+  "Third-party security assessment results positive",
+  "Security budget planning meeting next Tuesday",
+  "Thanks for your input on the security strategy",
+  "New secure coding guidelines for developers",
+  "Security champion program launched successfully",
+  "Vulnerability management process improvement project",
+  "Security awareness month activities announced",
+  "Thanks for completing the security self-assessment",
+  "New physical security measures implemented",
+  "Security governance framework updated",
+  "Privileged access management system deployed"
 ];
 
 // Common cybersecurity terms and entities for NER extraction
@@ -133,7 +250,7 @@ export const toolEntities = [
  * @param threatRatio Ratio of threat to benign messages (0-1)
  * @returns Array of synthetic threat messages
  */
-export function generateSyntheticDataset(count: number = 200, threatRatio: number = 0.4): ThreatMessage[] {
+export function generateSyntheticDataset(count: number = 300, threatRatio: number = 0.4): ThreatMessage[] {
   const dataset: ThreatMessage[] = [];
   const threatCount = Math.floor(count * threatRatio);
   const benignCount = count - threatCount;
@@ -223,8 +340,8 @@ export function exportToCSV(dataset: ThreatMessage[]): string {
   return [headers.join(','), ...rows.map(row => row.join(','))].join('\n');
 }
 
-// Generate the default dataset
-export const defaultDataset = generateSyntheticDataset(200, 0.4);
+// Generate the default dataset with enhanced size
+export const defaultDataset = generateSyntheticDataset(300, 0.4);
 
 // Sample messages for immediate testing (as specified in requirements)
 export const sampleMessages: ThreatMessage[] = [
