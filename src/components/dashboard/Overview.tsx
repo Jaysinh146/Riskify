@@ -101,7 +101,12 @@ export default function Overview({ userId }: OverviewProps) {
     }
 
     const analyses = data || [];
-    const threats = analyses.filter((a) => a.prediction_label === "Threat");
+    // Normalize labels for consistent counting
+    const normalizedAnalyses = analyses.map((a) => ({
+      ...a,
+      prediction_label: (a.prediction_label || '').toString().toLowerCase(),
+    }));
+    const threats = normalizedAnalyses.filter((a) => a.prediction_label === 'threat');
 
     setStats({
       totalAnalyses: analyses.length,

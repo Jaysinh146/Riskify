@@ -73,11 +73,11 @@ export default function ViewAll() {
   const applyFilters = (data: Analysis[]) => {
     let filtered = [...data];
 
-    // Apply type filter
+    // Apply type filter (case-insensitive)
     if (filter === "threat") {
-      filtered = filtered.filter((a) => a.prediction_label === "Threat");
+      filtered = filtered.filter((a) => (a.prediction_label || '').toString().toLowerCase() === 'threat');
     } else if (filter === "safe") {
-      filtered = filtered.filter((a) => a.prediction_label === "Safe");
+      filtered = filtered.filter((a) => (a.prediction_label || '').toString().toLowerCase() !== 'threat');
     }
 
     // Apply search filter
