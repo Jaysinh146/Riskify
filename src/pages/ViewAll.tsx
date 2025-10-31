@@ -66,12 +66,11 @@ export default function ViewAll() {
     }
 
     setAnalyses(data || []);
-    applyFilters(data || []);
     setLoading(false);
   };
 
-  const applyFilters = (data: Analysis[]) => {
-    let filtered = [...data];
+  useEffect(() => {
+    let filtered = [...analyses];
 
     // Apply type filter (case-insensitive)
     if (filter === "threat") {
@@ -97,10 +96,6 @@ export default function ViewAll() {
     }
 
     setFilteredAnalyses(filtered);
-  };
-
-  useEffect(() => {
-    applyFilters(analyses);
   }, [filter, searchQuery, sortBy, analyses]);
 
   const getRiskColor = (level: string) => {
