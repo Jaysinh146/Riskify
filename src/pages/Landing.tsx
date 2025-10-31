@@ -89,8 +89,13 @@ export default function Landing() {
 
       {/* Footer */}
       <footer className="border-t border-border mt-20">
-        <div className="container mx-auto px-4 py-8 text-center text-muted-foreground">
-          <p>© 2025 Riskify V2.0 - Final Year B.Tech Project</p>
+        <div className="container mx-auto px-4 py-8 text-center space-y-2">
+          <p className="text-sm text-muted-foreground">
+            Developed by <span className="font-semibold">SE 33</span> - Jaysinh, Sujal, Sannidhya, and Harsh
+          </p>
+          <p className="text-xs text-muted-foreground">
+            © 2025 Riskify V2.0 - Final Year B.Tech Project
+          </p>
         </div>
       </footer>
     </div>

@@ -134,6 +134,17 @@ export default function Auth() {
           </div>
         </CardContent>
       </Card>
+
+      {/* Footer */}
+      <footer className="fixed bottom-0 left-0 right-0 border-t bg-muted/30">
+        <div className="container mx-auto px-4 py-4">
+          <div className="text-center">
+            <p className="text-xs text-muted-foreground">
+              Developed by <span className="font-semibold">SE 33</span> - Jaysinh, Sujal, Sannidhya, and Harsh
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

@@ -152,9 +152,9 @@ export default function Overview({ userId }: OverviewProps) {
   ];
 
   const barData = [
-    { name: "Total", value: stats.totalAnalyses },
-    { name: "Threats", value: stats.threatsFound },
-    { name: "Safe", value: stats.totalAnalyses - stats.threatsFound },
+    { name: "Total", value: stats.totalAnalyses, fill: "hsl(var(--primary))" },
+    { name: "Threats", value: stats.threatsFound, fill: "hsl(var(--destructive))" },
+    { name: "Safe", value: stats.totalAnalyses - stats.threatsFound, fill: "hsl(var(--safe))" },
   ];
 
   return (
@@ -195,8 +195,16 @@ export default function Overview({ userId }: OverviewProps) {
               Total Analyses
             </CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="space-y-2">
             <p className="text-3xl font-bold text-foreground">{stats.totalAnalyses}</p>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={() => window.location.href = '/dashboard/view-all?filter=all'}
+              className="w-full"
+            >
+              View All
+            </Button>
           </CardContent>
         </Card>
 
@@ -207,8 +215,16 @@ export default function Overview({ userId }: OverviewProps) {
               Threats Detected
             </CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="space-y-2">
             <p className="text-3xl font-bold text-destructive">{stats.threatsFound}</p>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={() => window.location.href = '/dashboard/view-all?filter=threat'}
+              className="w-full"
+            >
+              View All
+            </Button>
           </CardContent>
         </Card>
 
@@ -231,10 +247,18 @@ export default function Overview({ userId }: OverviewProps) {
               Safe Messages
             </CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="space-y-2">
             <p className="text-3xl font-bold text-primary">
               {stats.totalAnalyses - stats.threatsFound}
             </p>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={() => window.location.href = '/dashboard/view-all?filter=safe'}
+              className="w-full"
+            >
+              View All
+            </Button>
           </CardContent>
         </Card>
       </div>
@@ -281,7 +305,7 @@ export default function Overview({ userId }: OverviewProps) {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="value" fill="hsl(142 76% 36%)" />
+                <Bar dataKey="value" />
               </BarChart>
             </ResponsiveContainer>
           </CardContent>
