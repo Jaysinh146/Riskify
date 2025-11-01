@@ -3,11 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { Shield } from "lucide-react";
+import { Shield, Moon, Sun } from "lucide-react";
 import Overview from "@/components/dashboard/Overview";
 import Analyze from "@/components/dashboard/Analyze";
 import Profile from "@/components/dashboard/Profile";
 import { User } from "@supabase/supabase-js";
+import { useTheme } from "@/components/ThemeProvider";
 
 export default function Dashboard() {
   const [user, setUser] = useState<User | null>(null);
@@ -15,6 +16,7 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     // Check current session
@@ -100,7 +102,7 @@ export default function Dashboard() {
                   onKeyDown={(e) => {
                     if (e.key === "Enter") handleSearch();
                   }}
-                  className="w-full px-4 py-2 pr-10 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-ring"
+                  className="w-full px-4 py-2 pr-10 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                 />
                 <button
                   onClick={handleSearch}
@@ -112,6 +114,17 @@ export default function Dashboard() {
                   </svg>
                 </button>
               </div>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              >
+                {theme === "light" ? (
+                  <Moon className="h-5 w-5" />
+                ) : (
+                  <Sun className="h-5 w-5" />
+                )}
+              </Button>
               <Button variant="outline" onClick={handleLogout}>
                 Log Out
               </Button>

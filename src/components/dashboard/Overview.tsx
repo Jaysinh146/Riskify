@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
-import { FileDown, Activity, AlertTriangle, Shield, TrendingUp } from "lucide-react";
+import { FileDown, Activity, AlertTriangle, Shield, TrendingUp, FileText } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from "recharts";
 import Papa from "papaparse";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 interface OverviewProps {
   userId: string;
@@ -32,6 +34,7 @@ export default function Overview({ userId }: OverviewProps) {
     lowRiskCount: 0,
   });
   const { toast } = useToast();
+  const reportRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     fetchStats();
@@ -150,6 +153,69 @@ export default function Overview({ userId }: OverviewProps) {
     });
   };
 
+  const exportToPDF = async () => {
+    if (!reportRef.current) return;
+
+    toast({
+      title: "Generating PDF...",
+      description: "Please wait while we create your report",
+    });
+
+    try {
+      const element = reportRef.current;
+      const canvas = await html2canvas(element, {
+        scale: 2,
+        backgroundColor: "#ffffff",
+        logging: false,
+      });
+
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4",
+      });
+
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+      const imgWidth = canvas.width;
+      const imgHeight = canvas.height;
+      const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+      const imgX = (pdfWidth - imgWidth * ratio) / 2;
+      const imgY = 10;
+
+      // Add header
+      pdf.setFontSize(20);
+      pdf.text("Riskify Analysis Report", pdfWidth / 2, imgY, { align: "center" });
+      pdf.setFontSize(12);
+      pdf.text(`Generated: ${new Date().toLocaleString()}`, pdfWidth / 2, imgY + 7, { align: "center" });
+
+      // Add chart image
+      pdf.addImage(
+        imgData,
+        "PNG",
+        imgX,
+        imgY + 15,
+        imgWidth * ratio,
+        imgHeight * ratio
+      );
+
+      pdf.save(`riskify-report-${new Date().toISOString()}.pdf`);
+
+      toast({
+        title: "PDF exported successfully",
+        description: "Your analysis report has been downloaded",
+      });
+    } catch (error) {
+      console.error("PDF export error:", error);
+      toast({
+        title: "Export failed",
+        description: "Failed to generate PDF report",
+        variant: "destructive",
+      });
+    }
+  };
+
   const pieData = [
     { name: "High Risk", value: stats.highRiskCount, color: "hsl(0 84% 60%)" },
     { name: "Medium Risk", value: stats.mediumRiskCount, color: "hsl(43 96% 56%)" },
@@ -169,7 +235,7 @@ export default function Overview({ userId }: OverviewProps) {
           <h2 className="text-3xl font-bold text-foreground">Analysis Overview</h2>
           <p className="text-muted-foreground">Real-time threat detection statistics</p>
         </div>
-        <div className="flex gap-3 w-full md:w-auto">
+        <div className="flex gap-3 w-full md:w-auto flex-wrap">
           <Select value={timeFilter} onValueChange={setTimeFilter}>
             <SelectTrigger className="w-[180px]">
               <SelectValue />
@@ -184,12 +250,18 @@ export default function Overview({ userId }: OverviewProps) {
               <SelectItem value="lifetime">Lifetime</SelectItem>
             </SelectContent>
           </Select>
+          <Button onClick={exportToPDF} variant="outline">
+            <FileText className="h-4 w-4 mr-2" />
+            Export PDF
+          </Button>
           <Button onClick={exportToCSV} variant="outline">
             <FileDown className="h-4 w-4 mr-2" />
             Export CSV
           </Button>
         </div>
       </div>
+
+      <div ref={reportRef}>
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -315,6 +387,7 @@ export default function Overview({ userId }: OverviewProps) {
             </ResponsiveContainer>
           </CardContent>
         </Card>
+      </div>
       </div>
     </div>
   );
