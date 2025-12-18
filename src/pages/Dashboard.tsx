@@ -7,6 +7,7 @@ import { Shield, Moon, Sun } from "lucide-react";
 import Overview from "@/components/dashboard/Overview";
 import Analyze from "@/components/dashboard/Analyze";
 import Profile from "@/components/dashboard/Profile";
+import NLPVisualization from "@/components/dashboard/NLPVisualization";
 import { User } from "@supabase/supabase-js";
 import { useTheme } from "@/components/ThemeProvider";
 
@@ -160,6 +161,9 @@ export default function Dashboard() {
             <Profile userId={user?.id || ""} />
           </TabsContent>
         </Tabs>
+
+        {/* NLP & ML Techniques Visualization */}
+        <NLPVisualization />
       </main>
 
       {/* Footer */}
