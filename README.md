@@ -7,71 +7,71 @@ The system uses Transformer-based NLP models to analyze messages and report susp
 
 This project was developed as a Final Year B.Tech Project.
 
-Project Objective
+**Project Objective**
 
-To build an automated system that:
+1. To build an automated system that:
 
-Detects potentially malicious or harmful messages
+2. Detects potentially malicious or harmful messages
 
-Uses NLP and Transformer models for intent analysis
+3. Uses NLP and Transformer models for intent analysis
 
-Flags threats with high accuracy (~90%)
+4. Flags threats with high accuracy (~90%)
 
-Assists cyber administrators in proactive security monitoring
+5. Assists cyber administrators in proactive security monitoring
 
-How Riskify Works
+**How Riskify Works**
 
-Messages are received by the system
+1. Messages are received by the system
 
-Text is cleaned and preprocessed
+2. Text is cleaned and preprocessed
 
-NLP + Transformer models analyze intent
+3. NLP + Transformer models analyze intent
 
-Messages are classified as safe or risky
+4. Messages are classified as safe or risky
 
-Risky messages are reported to the admin
+5. Risky messages are reported to the admin
 
-⚙️ Key Features
+**Key Features**
 
-NLP-based malicious message detection
+1. NLP-based malicious message detection
 
-Transformer-based intent classification
+2. Transformer-based intent classification
 
-~90% detection accuracy
+3. ~90% detection accuracy
 
-Admin reporting mechanism
-
+**Admin reporting mechanism
+**
 Scalable and modular architecture
 
 Designed for workspace security use cases
 
-Technologies Used
+**Technologies Used
+**
+1. Programming Language: Python
 
-Programming Language: Python
+2. Machine Learning: NLP, Transformers
 
-Machine Learning: NLP, Transformers
+3. Frontend: HTML, CSS, JavaScript
 
-Frontend: HTML, CSS, JavaScript
+4. Deployment: Netlify
 
-Deployment: Netlify
+5. Data Processing: Tokenization, embeddings, text preprocessing
 
-Data Processing: Tokenization, embeddings, text preprocessing
+**Model Performance
+**
+1. Accuracy: ~90% on threat detection tasks
 
-Model Performance
+2. Handles informal language and intent masking
 
-Accuracy: ~90% on threat detection tasks
+3. Optimized for workspace-style communication
 
-Handles informal language and intent masking
-
-Optimized for workspace-style communication
-
-Live Demo
-
+**Live Demo
+**
 You can explore the working prototype here:
 👉 https://riskify.netlify.app
 
-📂 Project Structure (Overview)
-alertlight-detect/
+**📂 Project Structure (Overview)
+**alertlight-detect/
 │
 ├── model/              # NLP & ML models
 ├── preprocessing/      # Text cleaning & tokenization
@@ -80,12 +80,12 @@ alertlight-detect/
 ├── dataset/            # Training & testing data
 └── README.md
 
-Cloning the Repository
-git clone https://github.com/Jaysinh146/alertlight-detect.git
+**Cloning the Repository
+**git clone https://github.com/Jaysinh146/alertlight-detect.git
 cd alertlight-detect
 
-Running the Project Locally
-1️⃣ Install Dependencies
+**Running the Project Locally
+**1️⃣ Install Dependencies
 pip install -r requirements.txt
 
 2️⃣ Run the Backend
@@ -98,8 +98,8 @@ OR
 
 Use a local server (recommended)
 
-🧭 Understanding the Codebase
-
+**🧭 Understanding the Codebase
+**
 preprocessing/ → Handles text cleaning, tokenization, and normalization
 
 model/ → Contains Transformer and NLP model logic
@@ -110,30 +110,30 @@ frontend/ → User interface and message input/output
 
 Start from the backend entry point (app.py) to understand the data flow end-to-end.
 
-🤝 Contributing Guidelines
-
+**🤝 Contributing Guidelines
+**
 Contributions are welcome for:
 
-Improving model accuracy
+1. Improving model accuracy
 
-Enhancing UI/UX
+2. Enhancing UI/UX
 
-Adding real-time messaging integrations
+3. Adding real-time messaging integrations
 
-Code optimization and documentation
+4. Code optimization and documentation
 
-Steps to contribute:
+**Steps to contribute:
+**
+1. Fork the repository
 
-Fork the repository
+2. Create a new branch
 
-Create a new branch
+3. Make your changes
 
-Make your changes
+4. Submit a pull request with a clear description
 
-Submit a pull request with a clear description
-
-Project Team
-
+**Project Team
+**
 This project was developed by:
 
 Sujal
