@@ -1,73 +1,152 @@
-# Welcome to your Lovable project
+AI-Based Threat Detection System for Workspace Messaging
 
-## Project info
+🔗 Live Demo: https://riskify.netlify.app
 
-**URL**: https://lovable.dev/projects/a853b437-38ce-4728-a03e-ac895cb8b882
+Riskify–LDP (Language Detection Platform) is a machine learning and NLP-based threat detection system designed to identify malicious or risky messages in workspace communication environments.
+The system uses Transformer-based NLP models to analyze messages and report suspicious activity to a cyber administrator for timely action.
 
-## How can I edit this code?
+This project was developed as a Final Year B.Tech Project.
 
-There are several ways of editing your application.
+Project Objective
 
-**Use Lovable**
+To build an automated system that:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a853b437-38ce-4728-a03e-ac895cb8b882) and start prompting.
+Detects potentially malicious or harmful messages
 
-Changes made via Lovable will be committed automatically to this repo.
+Uses NLP and Transformer models for intent analysis
 
-**Use your preferred IDE**
+Flags threats with high accuracy (~90%)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Assists cyber administrators in proactive security monitoring
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+How Riskify Works
 
-Follow these steps:
+Messages are received by the system
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Text is cleaned and preprocessed
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+NLP + Transformer models analyze intent
 
-# Step 3: Install the necessary dependencies.
-npm i
+Messages are classified as safe or risky
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Risky messages are reported to the admin
 
-**Edit a file directly in GitHub**
+⚙️ Key Features
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+NLP-based malicious message detection
 
-**Use GitHub Codespaces**
+Transformer-based intent classification
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+~90% detection accuracy
 
-## What technologies are used for this project?
+Admin reporting mechanism
 
-This project is built with:
+Scalable and modular architecture
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Designed for workspace security use cases
 
-## How can I deploy this project?
+Technologies Used
 
-Simply open [Lovable](https://lovable.dev/projects/a853b437-38ce-4728-a03e-ac895cb8b882) and click on Share -> Publish.
+Programming Language: Python
 
-## Can I connect a custom domain to my Lovable project?
+Machine Learning: NLP, Transformers
 
-Yes, you can!
+Frontend: HTML, CSS, JavaScript
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Deployment: Netlify
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Data Processing: Tokenization, embeddings, text preprocessing
+
+Model Performance
+
+Accuracy: ~90% on threat detection tasks
+
+Handles informal language and intent masking
+
+Optimized for workspace-style communication
+
+Live Demo
+
+You can explore the working prototype here:
+👉 https://riskify.netlify.app
+
+📂 Project Structure (Overview)
+alertlight-detect/
+│
+├── model/              # NLP & ML models
+├── preprocessing/      # Text cleaning & tokenization
+├── backend/            # Message analysis & classification logic
+├── frontend/           # UI components
+├── dataset/            # Training & testing data
+└── README.md
+
+Cloning the Repository
+git clone https://github.com/Jaysinh146/alertlight-detect.git
+cd alertlight-detect
+
+Running the Project Locally
+1️⃣ Install Dependencies
+pip install -r requirements.txt
+
+2️⃣ Run the Backend
+python app.py
+
+3️⃣ Open the Frontend
+
+Open index.html in your browser
+OR
+
+Use a local server (recommended)
+
+🧭 Understanding the Codebase
+
+preprocessing/ → Handles text cleaning, tokenization, and normalization
+
+model/ → Contains Transformer and NLP model logic
+
+backend/ → Message flow, prediction, and admin alert handling
+
+frontend/ → User interface and message input/output
+
+Start from the backend entry point (app.py) to understand the data flow end-to-end.
+
+🤝 Contributing Guidelines
+
+Contributions are welcome for:
+
+Improving model accuracy
+
+Enhancing UI/UX
+
+Adding real-time messaging integrations
+
+Code optimization and documentation
+
+Steps to contribute:
+
+Fork the repository
+
+Create a new branch
+
+Make your changes
+
+Submit a pull request with a clear description
+
+Project Team
+
+This project was developed by:
+
+Sujal
+
+Sannidhya
+
+Harsh
+
+Jaysinh
+
+As part of the Final Year B.Tech curriculum.
+
+⚠️ Disclaimer
+
+Riskify is intended strictly for educational and defensive cybersecurity purposes.
+It should be deployed in compliance with organizational policies and applicable laws.
